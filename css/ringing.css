@@ -1,0 +1,11 @@
+/* Active alarm experience. */
+.ringing-overlay { position: fixed; z-index: 90; inset: 0; display: grid; place-items: center; padding: 1rem; background: rgb(7 5 14 / 82%); backdrop-filter: blur(.7rem); }
+.ringing-overlay[hidden] { display: none; }
+.ringing-card { width: min(100%, 29rem); padding: clamp(1.4rem, 5vw, 2.6rem); border: 1px solid rgb(216 180 254 / 30%); border-radius: var(--radius-lg); text-align: center; background: radial-gradient(circle at 50% 7%, rgb(159 122 234 / 30%), transparent 43%), var(--surface); box-shadow: 0 1.7rem 5rem rgb(0 0 0 / 58%); }
+.ringing-bell { display: grid; width: 4.8rem; height: 4.8rem; place-items: center; margin: 0 auto 1.2rem; border-radius: 50%; color: #160e27; background: linear-gradient(145deg, var(--gold), var(--accent)); box-shadow: 0 0 0 .65rem rgb(159 122 234 / 12%), 0 .9rem 2.2rem rgb(159 122 234 / 27%); font-size: 1.95rem; animation: bell-shake .75s ease-in-out infinite; }
+.ringing-label { margin-top: .35rem; color: var(--text-soft); font-size: 1rem; }
+.ringing-time { margin: 1rem 0 1.7rem; font-family: var(--font-display); font-size: clamp(3.5rem, 16vw, 5.5rem); font-variant-numeric: tabular-nums; letter-spacing: -.08em; line-height: .9; }
+.ringing-actions { display: grid; gap: .65rem; }
+.ringing-actions .button { width: 100%; }
+@keyframes bell-shake { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(12deg); } 30% { transform: rotate(-10deg); } 45% { transform: rotate(7deg); } 60% { transform: rotate(-4deg); } }
+@media (min-width: 30rem) { .ringing-actions { grid-template-columns: 1fr 1fr; } .ringing-actions .button:last-child { grid-column: 1 / -1; } }

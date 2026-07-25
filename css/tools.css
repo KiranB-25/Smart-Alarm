@@ -1,0 +1,19 @@
+/* Stopwatch and countdown timer presentation. */
+.tools-grid { display: grid; gap: 1rem; }
+.tool-panel { width: 100%; min-width: 0; padding: clamp(1rem, 4vw, 1.8rem); border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, rgb(255 255 255 / 8%), transparent 42%), var(--surface); box-shadow: var(--shadow); backdrop-filter: blur(1rem); }
+.tool-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.tool-heading h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 500; letter-spacing: -.04em; }
+.tool-heading p { margin-top: .2rem; color: var(--text-muted); font-size: .8rem; }
+.tool-display { max-width: 100%; margin: clamp(1.25rem, 4vw, 2rem) 0; color: var(--ink); font-family: var(--font-display); font-size: clamp(2.3rem, 10vw, 5rem); font-variant-numeric: tabular-nums; letter-spacing: -.07em; line-height: .95; text-align: center; white-space: nowrap; }
+.tool-display small { color: var(--accent-strong); font-size: .44em; }
+.tool-actions { display: flex; flex-wrap: wrap; gap: .55rem; }
+.timer-inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; margin: 1.3rem 0; }
+.timer-input { display: grid; gap: .35rem; color: var(--text-muted); font-size: .72rem; font-weight: 750; letter-spacing: .07em; text-align: center; text-transform: uppercase; }
+.timer-input input { min-width: 0; min-height: 3rem; border: 1px solid var(--line); border-radius: .75rem; outline: none; color: var(--ink); background: rgb(0 0 0 / 15%); font-size: 1.1rem; font-variant-numeric: tabular-nums; text-align: center; }
+.timer-input input:focus { border-color: var(--accent); box-shadow: 0 0 0 .2rem rgb(159 122 234 / 18%); }
+.timer-input input:disabled { opacity: .5; cursor: not-allowed; }
+.laps { display: grid; gap: .45rem; max-height: 15rem; margin-top: 1.2rem; overflow: auto; }
+.lap-row { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem .75rem; border-radius: .7rem; color: var(--text-soft); background: rgb(0 0 0 / 12%); font-size: .82rem; font-variant-numeric: tabular-nums; }
+.lap-row span:last-child { color: var(--gold); }
+.lap-empty { color: var(--text-muted); font-size: .84rem; }
+@media (min-width: 58rem) { .tools-grid { grid-template-columns: 1fr 1fr; } }
