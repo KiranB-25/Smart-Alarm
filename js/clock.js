@@ -22,7 +22,7 @@ export class ClockController {
     const now = new Date();
     const hour24 = now.getHours();
     const hour = this.timeFormat === '24' ? hour24 : (hour24 % 12 || 12);
-    query('#digital-time').innerHTML = `${String(hour).padStart(2, '0')} : ${String(now.getMinutes()).padStart(2, '0')} : ${String(now.getSeconds()).padStart(2, '0')}${this.timeFormat === '12' ? `<span class="time-period">${hour24 >= 12 ? 'PM' : 'AM'}</span>` : ''}`;
+    query('#digital-time').innerHTML = `<span class="time-value">${String(hour).padStart(2, '0')} : ${String(now.getMinutes()).padStart(2, '0')} : ${String(now.getSeconds()).padStart(2, '0')}</span>${this.timeFormat === '12' ? `<span class="time-period">${hour24 >= 12 ? 'PM' : 'AM'}</span>` : ''}`;
     query('#clock-day').textContent = DAYS[now.getDay()];
     query('#clock-date').textContent = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(now);
     const homeTime = document.querySelector('#home-time');

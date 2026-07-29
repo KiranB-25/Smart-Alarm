@@ -1,4 +1,5 @@
 /* Digital and analog clock presentation. */
+.clock-page .foundation-panel { border: none !important; outline: none !important; }
 .clock-card { position: relative; display: grid; width: min(100%, 25rem); min-height: 0; margin-inline: auto; place-items: center; overflow: hidden; padding: clamp(.85rem, 4vw, 1.4rem); border: 1px solid var(--line); border-radius: 50%; aspect-ratio: 1; background: radial-gradient(circle at 35% 26%, rgb(196 181 253 / 16%), transparent 32%), var(--canvas-deep); box-shadow: inset 0 0 0 .65rem rgb(255 255 255 / 3%), 0 1.4rem 3rem rgb(0 0 0 / 28%); }
 .analog-clock { position: relative; width: min(100%, 18rem); border: clamp(.24rem, 1vw, .35rem) solid rgb(196 181 253 / 82%); border-radius: 50%; aspect-ratio: 1; box-shadow: inset 0 0 0 .15rem rgb(0 0 0 / 28%), 0 0 2rem rgb(159 122 234 / 18%); }
 .analog-clock::before { position: absolute; inset: .9rem; border: 1px solid rgb(255 255 255 / 7%); border-radius: inherit; content: ''; }
@@ -9,7 +10,8 @@
 .minute-hand { --hand-width: .28rem; --hand-length: 33%; --hand-color: var(--gold); }
 .second-hand { --hand-width: .12rem; --hand-length: 38%; --hand-color: var(--accent); transition: none; }
 .clock-center { position: absolute; z-index: 3; width: .8rem; height: .8rem; border: .18rem solid #1a112b; border-radius: 50%; background: var(--accent-strong); }
-.digital-time { margin: 1rem 0 .7rem; color: var(--ink); font-family: var(--font-display); font-size: clamp(2.5rem, 9vw, 6rem); font-variant-numeric: tabular-nums; font-weight: 500; letter-spacing: -.075em; line-height: .95; white-space: nowrap; }
-.time-period { display: inline-block; margin-left: .5rem; color: var(--accent-strong); font-family: var(--font-body); font-size: .2em; font-weight: 750; letter-spacing: .08em; vertical-align: middle; }
+.digital-time { margin: 1rem 0 .7rem; color: var(--ink); font-family: var(--font-display); font-size: clamp(2.5rem, 9vw, 6rem); font-variant-numeric: tabular-nums; font-weight: 500; letter-spacing: -.075em; line-height: .95; white-space: nowrap; position: relative; }
+.time-value { display: block; }
+.time-period { display: block; margin-top: 0.15rem; margin-left: auto; width: fit-content; color: var(--accent-strong); font-family: var(--font-body); font-size: .22em; font-weight: 750; letter-spacing: .05em; }
 .clock-date { color: var(--text-soft); font-size: clamp(.92rem, 2vw, 1.04rem); line-height: 1.6; }
 .clock-date strong { display: block; color: var(--gold); font-size: .73rem; letter-spacing: .12em; text-transform: uppercase; }

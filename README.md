@@ -1,102 +1,151 @@
-# Smart Alarm
+<div align="center">
 
-Smart Alarm is a premium, privacy-first alarm, stopwatch, and countdown timer application for modern browsers. It is built entirely with HTML5, CSS3, and native ES modules—no frameworks, build tooling, trackers, or external runtime dependencies.
+# ⏰ Smart Alarm
 
-## Features
+**A modern, privacy-first, feature-rich Alarm, Stopwatch, Countdown Timer & Clock application.**
 
-- Live digital clock with seconds, AM/PM, date, and 12/24-hour preferences
-- Synchronized animated analog clock
-- Unlimited alarms with labels, enabled state, editing, deletion, duplicate prevention, and local persistence
-- Repeat schedules for once, every day, weekdays, weekends, or specific days
-- Eight generated, offline-capable ringtones with preview, pause/resume, and stop controls
-- Full ringing view with sound, animated bell, Snooze, Dismiss, and Stop actions
-- Configurable snooze duration: 1, 5, 10, 15, or 30 minutes
-- Browser notification integration, with user-controlled permission requests
-- Stopwatch with pause/resume, reset, centiseconds, and multiple lap records
-- Countdown timer with hour, minute, and second inputs, pause/resume, reset, and completion sound
-- Persisted light, dark, and system appearance modes; animation preference; audio volume; clock format; notification preference; ringtone; snooze duration; and alarms
-- Dedicated Home, Alarm, Clock, Stopwatch, Countdown Timer, and Settings screens with responsive bottom/side navigation
-- Responsive, keyboard-accessible UI with reduced-motion support
+[![Python Version](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![CustomTkinter](https://img.shields.io/badge/GUI-CustomTkinter-blue?style=for-the-badge)](https://github.com/TomSchimansky/CustomTkinter)
+[![Pygame](https://img.shields.io/badge/Audio-Pygame-green?style=for-the-badge)](https://www.pygame.org)
+[![SQLite](https://img.shields.io/badge/Storage-SQLite3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://sqlite.org)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)]()
 
-## Screenshots
+[Features](#-features) • [Installation](#-installation) • [Usage](#-how-to-run) • [Architecture](#-project-structure) • [Testing](#-testing) • [Contributing](#-contributing)
 
-Screenshots can be added to [`assets/images/`](assets/images/) as the product evolves.
+</div>
 
-## Technologies Used
+---
 
-- HTML5
-- CSS3: custom properties, Grid, Flexbox, media queries, animations
-- Modern JavaScript (ES modules)
-- Web Audio API
-- Notifications API
-- Web Storage API (`localStorage`)
+## 📖 Overview
 
-## Folder Structure
+**Smart Alarm** is a premium, privacy-conscious suite designed to streamline daily scheduling and productivity. Built with modern architecture, it offers both a native **Python Desktop Application** (using CustomTkinter, Pygame, and SQLite) and a lightweight **Web Application** (HTML5, CSS3, ES Modules).
+
+Whether tracking focus sessions with the countdown timer, logging workout splits on the stopwatch, or configuring flexible alarm schedules, Smart Alarm delivers an intuitive, responsive interface with offline sound synthesis and persistent storage.
+
+---
+
+## ✨ Features
+
+### ⏰ Alarm Management
+- **Flexible Repeat Schedules**: Once, Every day, Weekdays, Weekends, or Custom Day selection.
+- **Duplicate Prevention**: Intelligently prevents creating alarms with matching time and repeat rules.
+- **Occurrence Key Tracking**: Guarantees alarms trigger exactly once per scheduled minute without duplicates.
+- **Ringing Alert & Snooze**: Full-screen / Top-Level modal alert with animated ringing bell, audio ringtone playback, Snooze (configurable 1–30 min), Dismiss, and Stop actions.
+
+### 🎵 Audio Ringtones & Volume
+- **8 Offline Synthesized WAV Tones**: `Classic Bell`, `Digital Alarm`, `Morning Birds`, `Soft Piano`, `Nature`, `Electronic`, `Gentle Chime`, and `Sunrise`.
+- **Live Sound Preview**: Test ringtones and master volume levels directly from Settings or the Alarm Editor.
+
+### ⏱ Productivity Tools
+- **Live Clock**: Synchronized digital clock with AM/PM (12h/24h), live seconds, full date, and animated canvas analog clock.
+- **Precision Stopwatch**: Track elapsed time down to centiseconds with start/pause/resume, reset, and split-lap recording table.
+- **Countdown Timer**: Hour, minute, and second controls with start/pause/reset and completion audio notification.
+
+### ⚙ Customization & Storage
+- **Appearance Modes**: Dark Mode, Light Mode, and System Theme integration.
+- **SQLite Persistence**: Relational storage for user preferences, alarm schedules, and execution history logs.
+
+---
+
+## 🛠 Tech Stack
+
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Language** | Python 3.10+ | Core application logic and object-oriented architecture |
+| **GUI Framework** | CustomTkinter | Modern, hardware-accelerated desktop interface |
+| **Audio Engine** | Pygame Mixer | Multi-channel audio playback and volume control |
+| **Database** | SQLite3 | Local persistence for alarms, preferences, and history |
+| **Testing** | Unittest | Automated unit testing framework |
+
+---
+
+## 📁 Project Structure
 
 ```text
 Smart-Alarm/
-├── index.html
-├── css/                 # Design tokens, layout, feature styles, responsiveness
-├── js/                  # Feature-oriented ES modules
+├── src/
+│   ├── models/            # Core data models (Alarm, Settings, AlarmHistory)
+│   ├── storage/           # SQLite Database Manager (smart_alarm.db)
+│   ├── services/          # Business logic (Audio, Scheduler, Stopwatch, Timer)
+│   ├── utils/             # Helpers, Logger, and WAV Tone Generator
+│   └── gui/               # CustomTkinter UI views, Dialogs & Ringing window
+├── tests/                 # Unit test suite
 ├── assets/
-│   ├── audio/           # Reserved for licensed future sound assets
-│   ├── fonts/           # Reserved for self-hosted licensed fonts
-│   ├── icons/
-│   └── images/
-├── README.md
-└── .gitignore
+│   ├── audio/             # 8 synthesized WAV ringtones
+│   └── icons/             # Graphical UI assets
+├── logs/                  # Application runtime logs
+├── css/                   # Web interface styling
+├── js/                    # Web interface ES modules
+├── index.html             # Web entrypoint
+├── main.py                # Desktop application entrypoint
+├── requirements.txt       # Dependencies (customtkinter, pygame, pillow)
+└── README.md
 ```
 
-## Installation
+---
 
-No package installation is required. Clone or download this repository.
+## 🚀 Installation & Setup
 
+### Prerequisites
+- [Python 3.10+](https://www.python.org/downloads/) installed on your system.
+
+### 1. Clone Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/KiranB-25/Smart-Alarm.git
 cd Smart-Alarm
 ```
 
-## How to Run
-
-Serve the directory with any static web server, then open the provided local address in a modern browser.
-
+### 2. Install Dependencies
 ```bash
-python3 -m http.server 8080
+python -m pip install -r requirements.txt
 ```
 
-Open `http://localhost:8080`.
+---
 
-> Opening `index.html` directly may work, but a local server is recommended for consistent module and notification behavior.
+## 💻 How to Run
 
-## Usage
+### Desktop Application
+To launch the native desktop GUI:
+```bash
+python main.py
+```
 
-1. Create an alarm from **Add alarm**, then select its time, tone, label, and repeat schedule.
-2. Use the tone controls to preview the chosen sound before saving.
-3. Adjust preferences in **Settings**. Enable notifications from that control when desired.
-4. Use the stopwatch for elapsed-time tracking and the countdown for focused sessions.
+### Web Application
+To serve the static web interface:
+```bash
+python -m http.server 8080
+```
+Then open `http://localhost:8080` in your web browser.
 
-Audio permission policies vary by browser. Interact with the page before expecting sound; browsers commonly require that initial gesture. Notifications also require HTTPS or `localhost`, plus explicit permission.
+---
 
-## Browser Compatibility
+## 🧪 Testing
 
-Designed for current versions of Chrome, Edge, Firefox, Safari, and mobile Safari/Chrome. The core clock, alarms, timer, and stopwatch work without notifications. Ringtone playback requires Web Audio API support; notification delivery requires the Notifications API and browser permission.
+Run the automated test suite with Python's built-in `unittest` runner:
 
-## Responsive Design
+```bash
+python -m unittest discover -s tests
+```
 
-The interface is mobile-first and adapts across small phones, large phones, tablets, laptops, and desktop monitors using fluid type scales, Grid, Flexbox, relative sizing, and responsive breakpoints.
+---
 
-## Future Improvements
+## 🛡 Key Architecture Principles
 
-- Service-worker and installable PWA support for stronger background behavior
-- Optional cloud synchronization and account-based backup
-- Importable licensed audio files and custom uploaded ringtones
-- Time-zone-aware travel mode
-- Wake-up challenges and smart-home integrations
+1. **Thread Safety**: Background alarm scheduling operates on a dedicated daemon thread. GUI updates are safely dispatched to the main thread via Tkinter's event loop (`root.after()`).
+2. **Clean Separation of Concerns**: Decoupled UI widgets, service classes, and data access layers.
+3. **Robust Error Handling**: Standardized logger writing events and errors to `logs/app.log`.
 
-## License
+---
 
-No license has been specified. Add an explicit license before distributing or accepting third-party contributions.
+## 📄 License
 
-## Author
+Distributed under the MIT License. See `LICENSE` for more information.
 
-Kiran Bukhari
+---
+
+<div align="center">
+
+Developed with ❤️ by **Kiran Bukhari**
+
+</div>

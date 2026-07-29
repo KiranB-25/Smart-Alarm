@@ -1,10 +1,9 @@
-# Operating-system and editor files
-.DS_Store
-Thumbs.db
+__pycache__/
+*.py[cod]
+*$py.class
+*.db
+*.sqlite3
+logs/*.log
+assets/audio/*.wav
 .vscode/
 .idea/
-
-# Local development output
-coverage/
-dist/
-*.log
