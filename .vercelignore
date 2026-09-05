@@ -1,0 +1,7 @@
+main.py
+requirements.txt
+src/
+tests/
+__pycache__/
+*.pyc
+*.py

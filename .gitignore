@@ -7,3 +7,5 @@ logs/*.log
 assets/audio/*.wav
 .vscode/
 .idea/
+
+.vercel
